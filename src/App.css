@@ -1,9 +1,15 @@
 .App {
   text-align: center;
   display: flex;
-  justify-content: space-between;
 }
 
 .sidebar {
-  width: 50%;
+  width: 30%;
+}
+
+.body {
+  width: 70%;
+  border: 1px solid black;
+  padding: 0px;
+  background-color: lightblue;
 }
