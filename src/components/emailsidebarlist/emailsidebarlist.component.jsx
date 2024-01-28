@@ -4,7 +4,7 @@
 import React from "react";
 import EmailSidebar from "../emailsidebar/emailsidebar.component";
 
-const EmailSidebarList = ({ emails, selectedEmail, modifyBodyToEmail }) => (
+const EmailSidebarList = ({ emails, activeEmail, modifyBodyToEmail }) => (
   // Each email is mapped to an EmailSidebar component 
   <div className="emaillist">
     {emails.map((email) => {
@@ -15,7 +15,7 @@ const EmailSidebarList = ({ emails, selectedEmail, modifyBodyToEmail }) => (
           <EmailSidebar
             key={email.id}
             email={email}
-            active={selectedEmail && email === selectedEmail} 
+            active={activeEmail && email === activeEmail} 
           />
         </div>
       );

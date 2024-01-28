@@ -15,8 +15,8 @@ import React, { useState, useEffect } from "react";
 function App() {
   // the list of all emails 
   const [emails, setEmails] = useState([]); 
-  // the selectedEmail is the active email that was selected/clicked on, and therefore displayed on the right (in the body)
-  const [selectedEmail, setSelectedEmail] = useState(null); // default is null 
+  // the active email is the email that was selected/clicked on, and therefore displayed on the right (in the body)
+  const [activeEmail, setActiveEmail] = useState(null); // default is null 
 
   useEffect(() => {
     const fetchEmails = async () => {
@@ -30,9 +30,9 @@ function App() {
     fetchEmails();
   }, []);
     
-  // Changes the selected email displayed in the body to the email that was clicked on in the sidebar 
-  const modifyBodyToEmail = (selectedEmail) => {
-    setSelectedEmail(selectedEmail); // sets the new state 
+  // Changes the active email displayed in the body to the email that was clicked on in the sidebar 
+  const modifyBodyToEmail = (activeEmail) => {
+    setActiveEmail(activeEmail); // sets the new state 
   };
 
   return (
@@ -41,12 +41,12 @@ function App() {
         <h1>Your Emails</h1>
         <EmailSidebarList 
           emails={emails} 
-          selectedEmail={selectedEmail}
+          activeEmail={activeEmail}
           modifyBodyToEmail={modifyBodyToEmail}
         />
       </div>
       <div className="body">
-        <EmailBody email={selectedEmail} /> 
+        <EmailBody email={activeEmail} /> 
       </div>
     </div>
   );
